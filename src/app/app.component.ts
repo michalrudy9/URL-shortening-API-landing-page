@@ -27,6 +27,4 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent,
   ],
 })
-export class AppComponent {
-  title = 'URL-shortening-API-landing-page';
-}
+export class AppComponent {}
