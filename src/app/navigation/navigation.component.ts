@@ -7,12 +7,5 @@ import { Component } from '@angular/core';
   imports: [NgClass],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
-
 })
-export class NavigationComponent {
-  protected isMenuCollapsed: boolean = true;
-
-  protected onAnimateCollapse() {
-    this.isMenuCollapsed = !this.isMenuCollapsed
-  }
-}
+export class NavigationComponent {}
