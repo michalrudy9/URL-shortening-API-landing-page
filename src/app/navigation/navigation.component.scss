@@ -1,0 +1,66 @@
+$neutral-gray: hsl(0, 0%, 75%);
+$primary-cyan: hsl(180, 66%, 49%);
+$neutral-cyan: hsl(180, 69%, 80%);
+$neutral-very-dark-blue: hsl(255, 11%, 22%);
+
+.nav-link-color {
+    color: $neutral-gray;
+}
+
+.primary-cyan-background-color {
+    background-color: $primary-cyan;
+}
+
+.primary-cyan-background-color:is(:hover, :active) {
+    background-color: $neutral-cyan;
+}
+
+.active-link-style:is(:hover, :active) {
+    color: $neutral-very-dark-blue;
+}
+
+.navbar-toggler:is(:focus, :active) {
+    box-shadow: none;
+}
+
+.active-button-link-style:is(:focus, :active) {
+    color: $neutral-very-dark-blue;
+    border: 0;
+}
+
+.navbar-toggler-icon {
+    background-image: url('../../assets/menu-sharp.svg');
+    filter: opacity(0.2);
+}
+
+.signup-width {
+    width: 7rem;
+}
+
+.navbar-menu-style {
+    background-color: none;
+    border-radius: 0;
+}
+
+hr { 
+    display: none;
+}
+
+@media screen and (max-width: 1199px) {
+    .navbar-menu-style {
+        background-color: $neutral-very-dark-blue;
+        border-radius: .5rem;
+    }
+
+    .nav-link-color {
+        color: #fff;
+    }
+
+    hr {
+        display: block;
+    }
+
+    .signup-width {
+        width: 100%;
+    }
+}
