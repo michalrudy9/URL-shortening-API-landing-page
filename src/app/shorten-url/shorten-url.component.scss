@@ -1,0 +1,83 @@
+$neutral-gray: hsl(0, 0%, 75%);
+$neutral-very-dark-blue: hsl(255, 11%, 22%);
+$primary-cyan: hsl(180, 66%, 49%);
+$neutral-cyan: hsl(180, 69%, 80%);
+
+$form-spacing: 9rem;
+
+.section-background {
+    background-color: $neutral-gray;
+    padding: 0 2rem;
+    margin-top: $form-spacing;
+}
+
+.form-background {
+    background: 
+        top right 
+        no-repeat 
+        $neutral-very-dark-blue url('../../assets/bg-shorten-mobile.svg');
+    transform: translateY(-($form-spacing / 2));
+}
+
+.url-input {
+    color: $neutral-gray;
+    font-size: 0.9rem;
+    height: 2.5rem;
+}
+
+.url-input::placeholder {
+    color: $neutral-gray;
+}
+
+.url-input:is(:hover, :focus) {
+    cursor: pointer;
+    outline: none;
+    border: 1px solid $primary-cyan;
+}
+
+.shorten-it-button {
+    background-color: $primary-cyan;
+}
+
+.shorten-it-button:is(:hover, :active) {
+    background-color: $neutral-cyan;
+}
+
+@media screen and (min-width: 992px) { 
+    $form-spacing: 8rem;
+
+    .form-background {
+        padding: 1rem 2rem;
+        background:
+        no-repeat
+        $neutral-very-dark-blue url('../../assets/bg-shorten-desktop.svg');
+        background-size: cover;
+        transform: translateY(-($form-spacing / 2));
+    }
+
+    .url-input {
+        height: 3rem;
+    }
+
+    .shorten-it-button {
+        height: 3rem;
+    }
+}
+
+@media screen and (min-width: 1001px) { 
+    .section-background {
+        padding: 0 8rem;
+    }
+}
+
+@media screen and (min-width: 1200px) { 
+    .url-input {
+        height: 3.5rem;
+        font-size: 1.2rem;
+    }
+
+    .shorten-it-button {
+        height: 3.5rem;
+        font-size: 1.2rem;
+    }
+}
