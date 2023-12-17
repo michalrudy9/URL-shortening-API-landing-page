@@ -16,7 +16,7 @@ $form-spacing: 9rem;
         top right 
         no-repeat 
         $neutral-very-dark-blue url('../../assets/bg-shorten-mobile.svg');
-    transform: translateY(-($form-spacing / 2));
+    transform: translateY(-(calc($form-spacing / 2)));
 }
 
 .url-input {
@@ -52,7 +52,7 @@ $form-spacing: 9rem;
         no-repeat
         $neutral-very-dark-blue url('../../assets/bg-shorten-desktop.svg');
         background-size: cover;
-        transform: translateY(-($form-spacing / 2));
+        transform: translateY(-(calc($form-spacing / 2)));
     }
 
     .url-input {
