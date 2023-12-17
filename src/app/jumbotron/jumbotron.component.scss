@@ -1,0 +1,70 @@
+$neutral-very-dark-blue: hsl(255, 11%, 22%);
+$neutral-gray: hsl(0, 0%, 75%);
+$primary-cyan: hsl(180, 66%, 49%);
+$neutral-cyan: hsl(180, 69%, 80%);
+
+.margin-top-5rem {
+    margin-top: 6rem;
+}
+
+.text-jumbotron {
+    padding: 0 2rem;
+}
+
+.heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $neutral-very-dark-blue;
+}
+
+.paragraph-heading {
+    color: $neutral-gray;
+}
+
+.signup-button {
+    background-color: $primary-cyan;
+    width: 11rem;
+    height: 3rem;
+    font-weight: 700;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.signup-button:is(:hover, :active) {
+    background-color: $neutral-cyan;
+}
+
+.image-heading {
+    transform: translateX(6rem);
+}
+
+@media screen and (min-width: 992px) { 
+    .heading {
+        font-size: 3.5rem;
+    }
+
+    .paragraph-heading {
+        font-size: 1.5rem;
+    }
+
+    .signup-button { 
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media screen and (min-width: 1001px) {
+    header {
+        padding: 0 0 0 8rem;
+    }
+
+    .text-jumbotron {
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 1200px) { 
+    .heading {
+        font-size: 5rem;
+    }
+}
