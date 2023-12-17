@@ -2,6 +2,7 @@ $neutral-gray: hsl(0, 0%, 75%);
 $neutral-very-dark-blue: hsl(255, 11%, 22%);
 $primary-cyan: hsl(180, 66%, 49%);
 $neutral-cyan: hsl(180, 69%, 80%);
+$secondary-red: hsl(0, 87%, 67%);
 
 $form-spacing: 9rem;
 
@@ -22,7 +23,7 @@ $form-spacing: 9rem;
 .url-input {
     color: $neutral-gray;
     font-size: 0.9rem;
-    height: 2.5rem;
+    height: 3rem;
 }
 
 .url-input::placeholder {
@@ -37,10 +38,26 @@ $form-spacing: 9rem;
 
 .shorten-it-button {
     background-color: $primary-cyan;
+    height: 3rem;
+    margin-top: 2.5rem;
 }
 
 .shorten-it-button:is(:hover, :active) {
     background-color: $neutral-cyan;
+}
+
+.url-input.ng-invalid.ng-touched {
+    border: 2px solid $secondary-red;
+}
+
+.url-input.ng-invalid.ng-touched::placeholder {
+    color: $secondary-red;
+}
+
+.error-block {
+    color: $secondary-red;
+    font-size: .9rem;
+    position: absolute;
 }
 
 @media screen and (min-width: 992px) { 
@@ -61,6 +78,7 @@ $form-spacing: 9rem;
 
     .shorten-it-button {
         height: 3rem;
+        margin-top: 0;
     }
 }
 
