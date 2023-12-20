@@ -4,12 +4,28 @@ $primary-cyan: hsl(180, 66%, 49%);
 $neutral-cyan: hsl(180, 69%, 80%);
 $secondary-red: hsl(0, 87%, 67%);
 
-$form-spacing: 9rem;
+.wrapper {
+    display: grid;
+    grid-template: 1fr / repeat(1fr, 2);
+    margin-top: 6rem;
+}
 
-.section-background {
+.background-white {
+    grid-area: 1 / 1 / 2 / 2;
+    z-index: 0;
+}
+
+.background-neutral-gray {
+    grid-area: 2 / 1 / 3 / 2;
     background-color: $neutral-gray;
+    z-index: 0;
+}
+
+.form-container {
+    align-self: center;
     padding: 0 2rem;
-    margin-top: $form-spacing;
+    grid-area: 1 / 1 / 3 / 2;
+    z-index: 1;
 }
 
 .form-background {
@@ -17,7 +33,6 @@ $form-spacing: 9rem;
         top right 
         no-repeat 
         $neutral-very-dark-blue url('../../assets/bg-shorten-mobile.svg');
-    transform: translateY(-(calc($form-spacing / 2)));
 }
 
 .url-input {
@@ -61,15 +76,12 @@ $form-spacing: 9rem;
 }
 
 @media screen and (min-width: 992px) { 
-    $form-spacing: 8rem;
-
     .form-background {
         padding: 1rem 2rem;
         background:
         no-repeat
         $neutral-very-dark-blue url('../../assets/bg-shorten-desktop.svg');
         background-size: cover;
-        transform: translateY(-(calc($form-spacing / 2)));
     }
 
     .url-input {
@@ -83,7 +95,7 @@ $form-spacing: 9rem;
 }
 
 @media screen and (min-width: 1001px) { 
-    .section-background {
+    .form-container {
         padding: 0 8rem;
     }
 }
