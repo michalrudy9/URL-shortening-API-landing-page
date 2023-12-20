@@ -9,9 +9,16 @@
               class="form-control url-input"
               type="text"
               placeholder="Shorten a link here..."
+              name="url"
             />
             @if (!form.get('url')?.valid && form.get('url')?.touched) {
             <span class="error-block"><i>Please add a link</i></span>
+            } @if (errorMessage().status !== 0) {
+            <span class="error-block"
+              ><i
+                >{{ errorMessage().status }}: {{ errorMessage().statusText }}</i
+              ></span
+            >
             }
           </div>
           <div class="col-12 col-lg-3 col-xxl-2">
@@ -26,5 +33,10 @@
         </div>
       </form>
     </div>
+    @if (urls().url !== '') {
+    <div>
+      {{ urls().url }}
+    </div>
+    }
   </div>
 </section>

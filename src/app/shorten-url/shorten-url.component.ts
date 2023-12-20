@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ShortenerService } from '../services/shortener.service';
 
 @Component({
   selector: 'app-shorten-url',
@@ -12,9 +13,13 @@ import {
   imports: [ReactiveFormsModule],
   templateUrl: './shorten-url.component.html',
   styleUrl: './shorten-url.component.scss',
+  providers: [ShortenerService],
 })
 export class ShortenUrlComponent implements OnInit {
   protected form!: FormGroup;
+  private shortenerService = inject(ShortenerService);
+  protected urls = this.shortenerService.shortenedUrl;
+  protected errorMessage = this.shortenerService.errorMessage;
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -24,7 +29,23 @@ export class ShortenUrlComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  protected onSubmit() {
     const userUrl = this.form.value['url'];
+    const preparedUrl = this.prepareUrl(userUrl);
+    this.shortenerService.shortenUrl(preparedUrl);
+    this.form.reset();
+  }
+
+  private prepareUrl(url: string): string {
+    let urlWithoutStartEndWhiteSpacesCharacters = '';
+
+    if (/^\s/.test(url)) {
+      urlWithoutStartEndWhiteSpacesCharacters = url.trimStart();
+    } else if (/\s$/.test(url)) {
+      urlWithoutStartEndWhiteSpacesCharacters = url.trimEnd();
+    } else {
+      urlWithoutStartEndWhiteSpacesCharacters = url;
+    }
+    return urlWithoutStartEndWhiteSpacesCharacters;
   }
 }
