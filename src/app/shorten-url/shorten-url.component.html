@@ -1,1 +1,42 @@
-<p>shorten-url works!</p>
+<section>
+  <div class="container-fluid section-background">
+    <div class="rounded-2 form-background">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-4">
+        <div class="row">
+          <div class="col-12 col-lg-9 col-xxl-10">
+            <input
+              formControlName="url"
+              class="form-control url-input"
+              type="text"
+              placeholder="Shorten a link here..."
+              name="url"
+            />
+            @if (!form.get('url')?.valid && form.get('url')?.touched) {
+            <span class="error-block"><i>Please add a link</i></span>
+            } @if (errorMessage().status !== 0) {
+            <span class="error-block"
+              ><i
+                >{{ errorMessage().status }}: {{ errorMessage().statusText }}</i
+              ></span
+            >
+            }
+          </div>
+          <div class="col-12 col-lg-3 col-xxl-2">
+            <button
+              [disabled]="!form.valid"
+              class="btn text-white w-100 shorten-it-button"
+              type="submit"
+            >
+              Shorten It!
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    @if (urls().url !== '') {
+    <div>
+      {{ urls().url }}
+    </div>
+    }
+  </div>
+</section>
