@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
@@ -9,6 +9,9 @@ import { ShortenedLinksComponent } from './shortened-links/shortened-links.compo
 import { StatisticsComponent } from './statistics/statistics.component';
 import { GetStartedComponent } from './get-started/get-started.component';
 import { FooterComponent } from './footer/footer.component';
+import { UrlService } from './services/url.service';
+import { LocalStorageService } from './services/local-storage.service';
+import { Url } from './models/url.model';
 
 @Component({
   selector: 'app-root',
@@ -27,4 +30,12 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent,
   ],
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  private urlService = inject(UrlService);
+  private localStorageService = inject(LocalStorageService);
+
+  ngOnInit(): void {
+    const urlsFromStorage = this.localStorageService.getData('urls') as Url[];
+    urlsFromStorage.forEach((url) => this.urlService.updateUrls(url));
+  }
+}
