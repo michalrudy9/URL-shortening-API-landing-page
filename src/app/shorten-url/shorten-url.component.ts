@@ -5,6 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+
 import { ShortenerService } from '../services/shortener.service';
 
 @Component({
@@ -13,13 +14,11 @@ import { ShortenerService } from '../services/shortener.service';
   imports: [ReactiveFormsModule],
   templateUrl: './shorten-url.component.html',
   styleUrl: './shorten-url.component.scss',
-  providers: [ShortenerService],
 })
 export class ShortenUrlComponent implements OnInit {
   protected form!: FormGroup;
   private shortenerService = inject(ShortenerService);
-  protected urls = this.shortenerService.shortenedUrl;
-  protected errorMessage = this.shortenerService.errorMessage;
+  protected errorMessage = this.shortenerService.getErrorMessage();
 
   constructor(private formBuilder: FormBuilder) {}
 
