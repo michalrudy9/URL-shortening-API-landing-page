@@ -1,21 +1,27 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Injectable, Signal, inject, signal } from '@angular/core';
+import {
+  Injectable,
+  Signal,
+  WritableSignal,
+  inject,
+  signal,
+} from '@angular/core';
 import { catchError, map, throwError } from 'rxjs';
 
 import { PostData } from '../models/post-data.model';
 import { Url } from '../models/url.model';
 import { ErrorMessage } from '../models/error-message.model';
+import { UrlService } from './url.service';
 
 @Injectable()
 export class ShortenerService {
   private http = inject(HttpClient);
-  private urls = signal<Url[]>([]);
-  private errorMessage = signal<ErrorMessage>({ status: 0, statusText: '' });
+  private urlService = inject(UrlService);
 
-  // In the future will be: () => Signal<ErrorMessage>
-  getUrls(): Signal<Url[]> {
-    // In the future will be: return this.urls.asReadonly;
-    return this.urls;
+  private errorMessage: WritableSignal<ErrorMessage>;
+
+  constructor() {
+    this.errorMessage = signal<ErrorMessage>({ status: 0, statusText: '' });
   }
 
   // In the future will be: () => Signal<ErrorMessage>
@@ -33,7 +39,7 @@ export class ShortenerService {
         catchError((error: HttpErrorResponse) => this.handleError(error))
       )
       .subscribe((shortenedUrl: Url) =>
-        this.urls.update((elements: Url[]) => [...elements, shortenedUrl])
+        this.urlService.updateUrls(shortenedUrl)
       );
   }
 

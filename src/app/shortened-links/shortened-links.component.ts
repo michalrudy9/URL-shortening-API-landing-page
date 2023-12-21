@@ -1,7 +1,7 @@
 import { Component, OnInit, Signal, inject } from '@angular/core';
 
-import { ShortenerService } from '../services/shortener.service';
 import { Url } from '../models/url.model';
+import { UrlService } from '../services/url.service';
 
 @Component({
   selector: 'app-shortened-links',
@@ -11,10 +11,10 @@ import { Url } from '../models/url.model';
   styleUrl: './shortened-links.component.scss',
 })
 export class ShortenedLinksComponent implements OnInit {
-  private shortenerService = inject(ShortenerService);
+  private urlService = inject(UrlService);
   protected urls!: Signal<Url[]>;
 
   ngOnInit(): void {
-    this.urls = this.shortenerService.getUrls();
+    this.urls = this.urlService.getUrls();
   }
 }
