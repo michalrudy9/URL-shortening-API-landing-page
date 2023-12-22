@@ -55,6 +55,7 @@ $secondary-red: hsl(0, 87%, 67%);
     background-color: $primary-cyan;
     height: 3rem;
     margin-top: 2.5rem;
+    font-weight: 700;
 }
 
 .shorten-it-button:is(:hover, :active) {

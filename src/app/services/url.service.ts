@@ -28,4 +28,10 @@ export class UrlService {
     this.urls.update((elements: Url[]) => [...elements, shortenedUrl]);
     this.localStorageService.saveData('urls', this.urls());
   }
+
+  existUrl(baseUrl: string): boolean {
+    return this.urls().some((url: Url) => url.baseUrl === baseUrl)
+      ? true
+      : false;
+  }
 }
