@@ -15,11 +15,16 @@
             />
             @if (!form.get('url')?.valid && form.get('url')?.touched) {
             <span class="error-block"><i>Please add a link</i></span>
-            } @if (errorMessage().status !== 0) {
+            } @if (errorMessage().status !== 0 && errorMessage().status !== -1)
+            {
             <span class="error-block"
               ><i
                 >{{ errorMessage().status }}: {{ errorMessage().statusText }}</i
               ></span
+            >
+            } @if (errorMessage().status === -1) {
+            <span class="error-block" style="color: orange !important"
+              ><i>{{ errorMessage().statusText }}</i></span
             >
             }
           </div>
