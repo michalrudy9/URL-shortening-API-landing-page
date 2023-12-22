@@ -11,7 +11,12 @@
           </div>
           <hr class="d-none d-md-block d-xl-none" />
           <div class="col-xl-2 p-3 pt-0 pt-xl-3">
-            <button class="btn text-white text-center w-100 copy-button">
+            <button
+              [cdkCopyToClipboard]="url.shortenedUrl"
+              (click)="onCopy(cb)"
+              class="btn text-white text-center w-100 primary-cyan-background-color"
+              #cb
+            >
               Copy
             </button>
           </div>

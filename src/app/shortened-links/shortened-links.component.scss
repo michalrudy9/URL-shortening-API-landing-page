@@ -17,11 +17,15 @@ $neutral-very-dark-blue: hsl(255, 11%, 22%);
     color: $primary-cyan;
 }
 
-.copy-button {
+.primary-cyan-background-color {
     background-color: $primary-cyan;
 }
 
-.copy-button:is(:hover, :active) {
+.neutral-very-dark-blue-background-color {
+    background-color: $neutral-very-dark-blue;
+}
+
+.primary-cyan-background-color:is(:hover, :active) {
     background-color: $neutral-cyan;
 }
 
