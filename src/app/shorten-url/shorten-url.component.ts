@@ -1,11 +1,13 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, Signal, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+
 import { ShortenerService } from '../services/shortener.service';
+import { ErrorMessage } from '../models/error-message.model';
 
 @Component({
   selector: 'app-shorten-url',
@@ -13,20 +15,18 @@ import { ShortenerService } from '../services/shortener.service';
   imports: [ReactiveFormsModule],
   templateUrl: './shorten-url.component.html',
   styleUrl: './shorten-url.component.scss',
-  providers: [ShortenerService],
 })
 export class ShortenUrlComponent implements OnInit {
   protected form!: FormGroup;
   private shortenerService = inject(ShortenerService);
-  protected urls = this.shortenerService.shortenedUrl;
-  protected errorMessage = this.shortenerService.errorMessage;
-
-  constructor(private formBuilder: FormBuilder) {}
+  private formBuilder = inject(FormBuilder);
+  protected errorMessage!: Signal<ErrorMessage>;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       url: this.formBuilder.control(null, Validators.required),
     });
+    this.errorMessage = this.shortenerService.getErrorMessage();
   }
 
   protected onSubmit() {

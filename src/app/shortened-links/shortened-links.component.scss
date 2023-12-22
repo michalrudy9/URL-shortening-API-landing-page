@@ -1,0 +1,40 @@
+$neutral-gray: hsl(0, 0%, 75%);
+$primary-cyan: hsl(180, 66%, 49%);
+$neutral-cyan: hsl(180, 69%, 80%);
+$neutral-very-dark-blue: hsl(255, 11%, 22%);
+
+.neutral-gray-background {
+    background-color: $neutral-gray;
+    padding: 0 2rem;
+    font-size: .9rem;
+}
+
+.border-bottom {
+    border-bottom: .05rem solid $neutral-gray !important;
+}
+
+.primary-cyan-color {
+    color: $primary-cyan;
+}
+
+.primary-cyan-background-color {
+    background-color: $primary-cyan;
+}
+
+.neutral-very-dark-blue-background-color {
+    background-color: $neutral-very-dark-blue;
+}
+
+.primary-cyan-background-color:is(:hover, :active) {
+    background-color: $neutral-cyan;
+}
+
+.neutral-very-dark-blue-color {
+    color: $neutral-very-dark-blue;
+}
+
+@media screen and (min-width: 1001px) { 
+    .neutral-gray-background {
+        padding: 0 8rem;
+    }
+}

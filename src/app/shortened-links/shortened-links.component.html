@@ -1,1 +1,38 @@
-<p>shortened-links works!</p>
+<section class="neutral-gray-background">
+  <ul class="list-group">
+    @for (url of urls(); track url.baseUrl) {
+    <li class="list-group-item p-0 mt-4 rounded-1">
+      <div class="container-fluid">
+        <div class="row align-items-xl-center">
+          <div class="col-md-6 col-xl-5 p-3">{{ url.baseUrl }}</div>
+          <hr class="d-md-none m-0" />
+          <div class="col-md-6 col-xl-5 text-md-end p-3 primary-cyan-color">
+            {{ url.shortenedUrl }}
+          </div>
+          <hr class="d-none d-md-block d-xl-none" />
+          <div class="col-xl-2 p-3 pt-0 pt-xl-3">
+            <button
+              [cdkCopyToClipboard]="url.shortenedUrl"
+              (click)="onCopy(cb)"
+              class="btn text-white text-center w-100 primary-cyan-background-color"
+              #cb
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+    } @empty {
+    <li class="list-group-item p-0 bg-transparent border-0 mt-5">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 p-0 neutral-very-dark-blue-color">
+            No urls shortened yet!
+          </div>
+        </div>
+      </div>
+    </li>
+    }
+  </ul>
+</section>
