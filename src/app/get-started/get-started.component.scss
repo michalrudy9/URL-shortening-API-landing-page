@@ -1,0 +1,35 @@
+$primary-dark-violet: hsl(257, 27%, 26%);
+$primary-cyan: hsl(180, 66%, 49%);
+$neutral-cyan: hsl(180, 69%, 80%);
+
+.section-background {
+    background: 
+        top right 
+        no-repeat 
+        $primary-dark-violet url('../../assets/bg-boost-mobile.svg');
+        height: 17rem;
+}
+
+.heading {
+    font-weight: 700;
+}
+
+.signup-button {
+    background-color: $primary-cyan;
+    width: 11rem;
+    height: 3rem;
+    font-weight: 700;
+}
+
+.signup-button:is(:hover, :active) {
+    background-color: $neutral-cyan;
+}
+
+@media screen and (min-width: 992px) { 
+    .section-background {
+        background:
+        no-repeat
+        $primary-dark-violet url('../../assets/bg-boost-desktop.svg');
+        background-size: cover;
+    }
+}
