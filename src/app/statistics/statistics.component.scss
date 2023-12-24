@@ -3,12 +3,13 @@ $neutral-very-dark-blue: hsl(255, 11%, 22%);
 $neutral-grayish-violet: hsl(257, 7%, 63%);
 $primary-cyan: hsl(180, 66%, 49%);
 $primary-dark-violet: hsl(257, 27%, 26%);
+$neutral-grayish-violet-secondary: hsl(230, 25%, 95%);
 
 $icon-height: 5rem;
 $article-offset: 3rem;
 
-.neutral-gray-background {
-    background-color: $neutral-gray;
+.neutral-grayish-violet-secondary-background {
+    background-color: $neutral-grayish-violet-secondary;
     padding: 0 2rem 4rem 2rem;
 }
 
@@ -73,7 +74,7 @@ $article-offset: 3rem;
 }
 
 @media screen and (min-width: 1001px) { 
-    .neutral-gray-background {
+    .neutral-grayish-violet-secondary-background {
         padding: 0 8rem 4rem 8rem;
     }
 
