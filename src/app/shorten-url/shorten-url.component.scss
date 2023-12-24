@@ -4,6 +4,8 @@ $primary-cyan: hsl(180, 66%, 49%);
 $neutral-cyan: hsl(180, 69%, 80%);
 $secondary-red: hsl(0, 87%, 67%);
 $neutral-grayish-violet-secondary: hsl(230, 25%, 95%);
+$neutral-grayish-violet: hsl(257, 7%, 63%);
+$primary-dark-violet: hsl(257, 27%, 26%);
 
 .wrapper {
     display: grid;
@@ -33,17 +35,17 @@ $neutral-grayish-violet-secondary: hsl(230, 25%, 95%);
     background: 
         top right 
         no-repeat 
-        $neutral-very-dark-blue url('../../assets/bg-shorten-mobile.svg');
+        $primary-dark-violet url('../../assets/bg-shorten-mobile.svg');
 }
 
 .url-input {
-    color: $neutral-gray;
+    color: $neutral-grayish-violet;
     font-size: 0.9rem;
     height: 3rem;
 }
 
 .url-input::placeholder {
-    color: $neutral-gray;
+    color: $neutral-grayish-violet;
 }
 
 .url-input:is(:hover, :focus) {
@@ -82,7 +84,7 @@ $neutral-grayish-violet-secondary: hsl(230, 25%, 95%);
         padding: 1rem 2rem;
         background:
         no-repeat
-        $neutral-very-dark-blue url('../../assets/bg-shorten-desktop.svg');
+        $primary-dark-violet url('../../assets/bg-shorten-desktop.svg');
         background-size: cover;
     }
 
