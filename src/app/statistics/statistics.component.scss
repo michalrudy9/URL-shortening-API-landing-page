@@ -1,0 +1,115 @@
+$neutral-gray: hsl(0, 0%, 75%);
+$neutral-very-dark-blue: hsl(255, 11%, 22%);
+$neutral-grayish-violet: hsl(257, 7%, 63%);
+$primary-cyan: hsl(180, 66%, 49%);
+$primary-dark-violet: hsl(257, 27%, 26%);
+
+$icon-height: 5rem;
+$article-offset: 3rem;
+
+.neutral-gray-background {
+    background-color: $neutral-gray;
+    padding: 0 2rem 4rem 2rem;
+}
+
+.heading {
+    color: $neutral-very-dark-blue;
+    font-weight: 700;
+    padding-top: 5rem;
+}
+
+.paragraph-heading {
+    color: $neutral-grayish-violet;
+}
+
+.statistics-container {
+    display: grid;
+    grid-template: 1fr / 1fr;
+}
+
+.line {
+    grid-area: 1 / 1 / 2 / 2;
+    justify-self: center;
+    border: 3px solid $primary-cyan;
+    width: 0;
+    margin-top: calc($icon-height / 2);
+}
+
+.row {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.circle-background {
+    width: 5rem;
+    height: $icon-height;
+    background-color: $primary-dark-violet;
+    padding: 1.3rem;
+    align-self: center;
+    transform: translateY(calc($icon-height / 2));
+}
+
+.text-tile {
+    font-size: .9rem;
+    max-height: 20rem;
+    max-width: 20rem;
+    padding: $icon-height 2rem 2rem 2rem;
+}
+
+.tile-heading {
+    font-weight: 700;
+    color: $neutral-very-dark-blue;
+    font-size: 1.3rem;
+}
+
+.paragraph-tile {
+    color: $neutral-grayish-violet;
+}
+
+@media screen and (min-width: 400px) { 
+    .text-tile {
+        height: 17rem;
+        width: 20rem;
+    }
+}
+
+@media screen and (min-width: 1001px) { 
+    .neutral-gray-background {
+        padding: 0 8rem 4rem 8rem;
+    }
+
+    .row {
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .line {
+        margin-top: 0;
+        height: 0;
+        width: 100%;
+        align-self: center;
+    }
+
+    .row {
+        height: calc(35rem);
+    }
+
+    .row > div:nth-child(2) {
+        transform: translateY($article-offset);
+    }
+
+    .row > div:nth-child(3) {
+        transform: translateY(calc(2 * $article-offset));
+    }
+
+    .circle-background {
+        margin-left: 2rem;
+    }
+
+    .text-tile {
+        max-height: unset;
+        max-width: unset;
+        width: 100%;
+        aspect-ratio: auto 1 / 1;
+    }
+}
