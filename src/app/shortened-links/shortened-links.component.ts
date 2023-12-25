@@ -9,26 +9,31 @@ import {
   inject,
 } from '@angular/core';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 import { Url } from '../models/url.model';
 import { UrlService } from '../services/url.service';
+import { ShortenerService } from '../services/shortener.service';
 
 @Component({
   selector: 'app-shortened-links',
   standalone: true,
-  imports: [ClipboardModule],
+  imports: [ClipboardModule, NgxSkeletonLoaderModule],
   templateUrl: './shortened-links.component.html',
   styleUrl: './shortened-links.component.scss',
 })
 export class ShortenedLinksComponent implements OnInit {
   private urlService = inject(UrlService);
+  private shortenerService = inject(ShortenerService);
   private renderer = inject(Renderer2);
   protected urls!: Signal<Url[]>;
+  protected isRequest!: Signal<boolean>;
   @ViewChildren('cb', { read: ElementRef })
   private copyButtons!: QueryList<ElementRef>;
 
   ngOnInit(): void {
     this.urls = this.urlService.getUrls();
+    this.isRequest = this.shortenerService.getRequestBoolean();
   }
 
   onCopy(clickedButton: HTMLElement) {
