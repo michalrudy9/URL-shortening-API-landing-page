@@ -1,6 +1,27 @@
 <section class="neutral-grayish-violet-secondary">
+  @if (isRequest()) {
+    <div class="row align-items-xl-center pt-4 row-gap-3 m-0">
+      <ngx-skeleton-loader class="col-md-6 col-xl-5 px-3 d-flex align-items-center" count="1" appearance="line" [theme]="{
+        'background-color': 'hsl(0, 0%, 75%)',
+        'height': '1.313rem',
+        'max-width': '15rem',
+        'margin': '0'
+      }"></ngx-skeleton-loader>
+      <ngx-skeleton-loader class="col-md-6 col-xl-5 px-3 d-flex justify-content-md-end" count="1" appearance="line" [theme]="{
+        'background-color': 'hsl(0, 0%, 75%)',
+        'height': '1.313rem',
+        'max-width': '21rem',
+        'margin': '0'
+      }"></ngx-skeleton-loader>
+      <ngx-skeleton-loader class="col-xl-2 p-0 px-3 d-flex align-items-xl-center" count="1" appearance="line" [theme]="{
+        'background-color': 'hsl(0, 0%, 75%)',
+        'height': '2.25rem',
+        'margin': '0'
+      }"></ngx-skeleton-loader>
+    </div>
+  }
   <ul class="list-group">
-    @for (url of urls(); track url.baseUrl) {
+    @for (url of urls().slice().reverse(); track url.baseUrl) {
     <li class="list-group-item p-0 mt-4 rounded-1 border-0">
       <div class="container-fluid">
         <div class="row align-items-xl-center">

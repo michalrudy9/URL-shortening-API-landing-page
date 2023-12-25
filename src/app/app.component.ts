@@ -36,6 +36,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     const urlsFromStorage = this.localStorageService.getData('urls') as Url[];
-    urlsFromStorage.forEach((url) => this.urlService.updateUrls(url));
+    if (urlsFromStorage.length !== 0) {
+      urlsFromStorage.forEach((url) => this.urlService.updateUrls(url));
+    }
   }
 }

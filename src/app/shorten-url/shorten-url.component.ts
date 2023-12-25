@@ -1,12 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnInit,
-  Renderer2,
-  Signal,
-  ViewChild,
-  inject,
-} from '@angular/core';
+import { Component, OnInit, Signal, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -25,23 +17,16 @@ import { ErrorMessage } from '../models/error-message.model';
   styleUrl: './shorten-url.component.scss',
 })
 export class ShortenUrlComponent implements OnInit {
-  protected form!: FormGroup;
   private shortenerService = inject(ShortenerService);
   private formBuilder = inject(FormBuilder);
-  private renderer = inject(Renderer2);
+  protected form!: FormGroup;
   protected errorMessage!: Signal<ErrorMessage>;
-  @ViewChild('es')
-  private errorSpan!: ElementRef;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       url: this.formBuilder.control(null, Validators.required),
     });
     this.errorMessage = this.shortenerService.getErrorMessage();
-  }
-
-  protected onTouchedInput() {
-    this.renderer.setProperty(this.errorSpan.nativeElement, 'textContent', '');
   }
 
   protected onSubmit() {
