@@ -1,6 +1,6 @@
 <section class="neutral-grayish-violet-secondary">
   <ul class="list-group">
-    @for (url of urls(); track url.baseUrl) {
+    @for (url of urls().slice().reverse(); track url.baseUrl) {
     <li class="list-group-item p-0 mt-4 rounded-1 border-0">
       <div class="container-fluid">
         <div class="row align-items-xl-center">
