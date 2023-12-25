@@ -1,0 +1,40 @@
+$neutral-verybark-violet: hsl(260, 8%, 14%);
+$neutral-grayish-violet: hsl(257, 7%, 63%);
+$primary-cyan: hsl(180, 66%, 49%);
+
+.footer-background {
+    background-color: $neutral-verybark-violet;
+}
+
+.white-color {
+    filter: brightness(10);
+}
+
+.heading {
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+
+.heading-list {
+    list-style-type: none;
+}
+
+.heading-list-item {
+    color: $neutral-grayish-violet;
+    font-size: .9rem;
+    transition: all .5s;
+}
+
+.heading-list-item:is(:hover, :active) {
+    color: $primary-cyan;
+    transition: all .5s;
+}
+
+.social-icon {
+    transition: all .3s;
+}
+
+.social-icon:is(:hover, :active) {
+    filter: invert(62%) sepia(88%) saturate(353%) hue-rotate(131deg) brightness(150%) contrast(96%);
+    transition: all .3s;
+}
