@@ -1,6 +1,6 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import { routes } from './app.routes';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { RouterModule, provideRouter } from '@angular/router';
+import { routerOptions, routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 
 import { ShortenerService } from './services/shortener.service';
@@ -9,10 +9,11 @@ import { UrlService } from './services/url.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    // provideRouter(routes),
+    importProvidersFrom(RouterModule.forRoot(routes, routerOptions)),
     provideHttpClient(),
     ShortenerService,
     LocalStorageService,
-    UrlService
+    UrlService,
   ],
 };

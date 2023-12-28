@@ -14,6 +14,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { Url } from '../models/url.model';
 import { UrlService } from '../services/url.service';
 import { ShortenerService } from '../services/shortener.service';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-shortened-links',
@@ -32,6 +33,7 @@ export class ShortenedLinksComponent implements OnInit {
   private copyButtons!: QueryList<ElementRef>;
 
   ngOnInit(): void {
+    AOS.init();
     this.urls = this.urlService.getUrls();
     this.isRequest = this.shortenerService.getRequestBoolean();
   }

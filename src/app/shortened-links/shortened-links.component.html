@@ -22,7 +22,9 @@
   }
   <ul class="list-group">
     @for (url of urls().slice().reverse(); track url.baseUrl) {
-    <li class="list-group-item p-0 mt-4 rounded-1 border-0">
+    <li 
+      class="list-group-item p-0 mt-4 rounded-1 border-0"
+      data-aos="flip-up">
       <div class="container-fluid">
         <div class="row align-items-xl-center">
           <div class="col-md-6 col-xl-5 p-3 neutral-very-dark-blue-color">{{ url.baseUrl }}</div>
@@ -45,7 +47,9 @@
       </div>
     </li>
     } @empty {
-    <li class="list-group-item p-0 bg-transparent border-0 mt-5">
+    <li 
+      class="list-group-item p-0 bg-transparent border-0 mt-5"
+      data-aos="fade-right">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 p-0 neutral-very-dark-blue-color">
