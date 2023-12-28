@@ -5,6 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import AOS from 'aos';
 
 import { ShortenerService } from '../services/shortener.service';
 import { ErrorMessage } from '../models/error-message.model';
@@ -22,7 +23,10 @@ export class ShortenUrlComponent implements OnInit {
   protected form!: FormGroup;
   protected errorMessage!: Signal<ErrorMessage>;
 
-  ngOnInit(): void {
+  ngOnInit(): void {   
+    AOS.init({
+      duration: 800,
+    });
     this.form = this.formBuilder.group({
       url: this.formBuilder.control(null, Validators.required),
     });

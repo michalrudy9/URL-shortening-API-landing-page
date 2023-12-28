@@ -3,19 +3,25 @@
     <div class="row margin-top-5rem">
       <div
         class="col-lg-6 order-2 order-lg-1 text-center text-lg-start mt-5 mt-lg-0 d-flex flex-column justify-content-center text-jumbotron"
+        data-aos="fade-right"
       >
         <h1 class="heading">More than just shorter links</h1>
         <p class="paragraph-heading mt-2">
           Build your brand’s recognition and get detailed insights on how your
           links are performing.
         </p>
-        <button class="btn text-white rounded-pill mt-4 signup-button">
+        <button
+          (click)="onScrollGetStarted()"
+          class="btn text-white rounded-pill mt-4 signup-button"
+        >
           Get Started
         </button>
       </div>
       <div
         class="col-lg-6 order-1 order-lg-2 p-0 text-end"
         style="overflow: hidden"
+        data-aos="fade-left"
+        data-aos-delay="1000"
       >
         <img
           class="img-fluid image-heading"

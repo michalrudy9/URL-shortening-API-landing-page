@@ -47,6 +47,7 @@ $article-offset: 3rem;
     padding: 1.3rem;
     align-self: center;
     transform: translateY(calc($icon-height / 2));
+    z-index: 1;
 }
 
 .text-tile {
