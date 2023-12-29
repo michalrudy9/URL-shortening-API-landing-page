@@ -6,7 +6,7 @@ $neutral-cyan: hsl(180, 69%, 80%);
     background: 
         top right 
         no-repeat 
-        $primary-dark-violet url('../../assets/bg-boost-mobile.svg');
+        $primary-dark-violet url('../../../assets/bg-boost-mobile.svg');
         height: 17rem;
 }
 
@@ -29,7 +29,7 @@ $neutral-cyan: hsl(180, 69%, 80%);
     .section-background {
         background:
         no-repeat
-        $primary-dark-violet url('../../assets/bg-boost-desktop.svg');
+        $primary-dark-violet url('../../../assets/bg-boost-desktop.svg');
         background-size: cover;
     }
 }

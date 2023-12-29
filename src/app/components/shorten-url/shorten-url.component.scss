@@ -35,7 +35,7 @@ $primary-dark-violet: hsl(257, 27%, 26%);
     background: 
         top right 
         no-repeat 
-        $primary-dark-violet url('../../assets/bg-shorten-mobile.svg');
+        $primary-dark-violet url('../../../assets/bg-shorten-mobile.svg');
 }
 
 .url-input {
@@ -84,7 +84,7 @@ $primary-dark-violet: hsl(257, 27%, 26%);
         padding: 1rem 2rem;
         background:
         no-repeat
-        $primary-dark-violet url('../../assets/bg-shorten-desktop.svg');
+        $primary-dark-violet url('../../../assets/bg-shorten-desktop.svg');
         background-size: cover;
     }
 

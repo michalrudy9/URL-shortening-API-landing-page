@@ -6,7 +6,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { catchError, map, single, throwError } from 'rxjs';
+import { catchError, map, throwError } from 'rxjs';
 
 import { PostData } from '../models/post-data.model';
 import { Url } from '../models/url.model';
