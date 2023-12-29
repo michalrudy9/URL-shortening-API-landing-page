@@ -11,9 +11,9 @@ import {
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
-import { Url } from '../models/url.model';
-import { UrlService } from '../services/url.service';
-import { ShortenerService } from '../services/shortener.service';
+import { Url } from '../../models/url.model';
+import { UrlService } from '../../services/url.service';
+import { ShortenerService } from '../../services/shortener.service';
 import AOS from 'aos';
 
 @Component({

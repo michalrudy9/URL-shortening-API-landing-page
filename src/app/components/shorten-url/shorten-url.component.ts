@@ -7,8 +7,8 @@ import {
 } from '@angular/forms';
 import AOS from 'aos';
 
-import { ShortenerService } from '../services/shortener.service';
-import { ErrorMessage } from '../models/error-message.model';
+import { ShortenerService } from '../../services/shortener.service';
+import { ErrorMessage } from '../../models/error-message.model';
 
 @Component({
   selector: 'app-shorten-url',
